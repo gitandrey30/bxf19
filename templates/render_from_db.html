@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+
+</head>
+<body>
+
+<div class="container">
+    <div class="row" style="padding:50px;">
+        <p><h1>Response from Postgres</h1></p>
+        <div>
+            <table  id="table" class="display dataTable" width="100%">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Date</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                {% for item in rep %}
+                    <tr>
+                        <td>{{ item.name}}</td>
+                        <td>{{ item.data}}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<script type="text/javascript" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js">
+    $(document).ready(function() {
+        $('#table').DataTable({
+            scrollY: 400
+            'ajax': {
+                'url': '/get_data'
+                },
+            'columns': [
+                {data:'name'},
+                {data:'date'},
+            ]
+        });
+    });
+</script>
+
+<a href="/" style="margin: 200px;"><button>Перейти на стартовую страницу</button></a>
+
+</body>
+</html>
