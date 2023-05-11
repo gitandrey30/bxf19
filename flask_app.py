@@ -73,6 +73,28 @@ def get_error(error):
     return render_template('error_page.html', error_message=error_message), 404
 
 
+@app.route('/calculator', methods=['GET', 'POST'])
+def get_calc_page():
+#     var1 = int(input())
+#     var2 = int(input())
+#     type_operation = input(str)
+    var1 = int(request.form.get('var1'))
+    var2 = int(request.form.get('var2'))
+    print(type(var1))
+    print(var2)
+    type_operation = request.form.get('type_operation')
+    print(type_operation)
+    if type_operation == '+':
+        result = var1 + var2
+    if type_operation == '-':
+        result = var1 - var2
+    if type_operation == '*':
+        result = var1 * var2
+    if type_operation == '/':
+        result = var1 / var2
+    return render_template('calculator.html', result=result)
+
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)
 

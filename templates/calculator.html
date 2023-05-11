@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+</head>
+<body>
+
+<section style="width: 80%; height: 400px; margin: 0 auto; border: 2px solid green">
+
+<h1 style="margin: 20px"> calc form
+    <form action="/calculator" method="POST" enctype="multipart/form-data">
+        <p> input int value
+        <input type="text" name="var1" >
+        <p> type operation
+        <input type="text" name="type_operation"> +, -, /, *
+        <p> input int value
+        <input type="text" name="var2">
+        <p>
+        <input type="submit" value="get">
+
+    </form>
+    <ul>{{ result }}</ul>
+</h1>
+
+</body>
+</html>
